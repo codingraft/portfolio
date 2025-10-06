@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 import { Send } from 'lucide-react';
@@ -30,81 +29,80 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-gray-50 dark:bg-gray-800" id='contact'>
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
-            Get in Touch
+    <section id='contact' className="scroll-mt-24">
+      <div className="space-y-6 max-w-2xl mx-auto text-center">
+        <div className="space-y-3">
+          <span className="text-xs uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">Contact</span>
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-slate-100">
+            Tell me about your next launch.
           </h2>
+          <p className="text-sm md:text-base text-slate-600 dark:text-slate-300">
+            Share a quick brief and I’ll reply within a day with next steps and timelines.
+          </p>
+        </div>
 
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="space-y-6 bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md"
-          >
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                name="from_name"
-                id="name"
-                required
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                name="from_email"
-                id="email"
-                required
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1"
-              >
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                rows={4}
-                required
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center space-x-2 disabled:opacity-50"
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="space-y-5 rounded-3xl border border-slate-200/60 dark:border-slate-800/70 bg-white/60 dark:bg-slate-900/40 p-6 sm:p-8 text-left"
+        >
+          <div className="space-y-2">
+            <label
+              htmlFor="name"
+              className="text-sm font-medium text-slate-700 dark:text-slate-200"
             >
-              <Send className="w-5 h-5" />
-              <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-            </button>
-          </form>
-        </motion.div>
+              Name
+            </label>
+            <input
+              type="text" 
+              name="from_name"
+              id="name"
+              required
+              className="w-full rounded-xl border border-slate-300/70 dark:border-slate-700/70 bg-white/80 dark:bg-slate-950/40 px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-700"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label
+              htmlFor="email"
+              className="text-sm font-medium text-slate-700 dark:text-slate-200"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              name="from_email"
+              id="email"
+              required
+              className="w-full rounded-xl border border-slate-300/70 dark:border-slate-700/70 bg-white/80 dark:bg-slate-950/40 px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-700"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label
+              htmlFor="message"
+              className="text-sm font-medium text-slate-700 dark:text-slate-200"
+            >
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              rows={4}
+              required
+              className="w-full rounded-xl border border-slate-300/70 dark:border-slate-700/70 bg-white/80 dark:bg-slate-950/40 px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-700"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium tracking-wide text-white hover:bg-slate-700 disabled:opacity-60 dark:bg-slate-100 dark:text-slate-950 dark:hover:bg-slate-200"
+          >
+            <Send className="w-4 h-4" />
+            <span>{isSubmitting ? 'Sending…' : 'Send message'}</span>
+          </button>
+        </form>
       </div>
     </section>
   );

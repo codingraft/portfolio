@@ -1,47 +1,63 @@
-import { motion } from "framer-motion";
+const highlights = [
+  {
+    title: 'System-first thinking',
+    description: 'I plan APIs, data flows, and deployment pipelines early so the product stays fast, observable, and easy to extend.',
+  },
+  {
+    title: 'Design-aware delivery',
+    description: 'Interfaces honour typography, motion, and accessibility guidelines while staying tightly coupled with the underlying architecture.',
+  },
+  {
+    title: 'Quality without drama',
+    description: 'Automated checks, meaningful tests, and gradual rollouts keep features shippable and stakeholders informed.',
+  },
+  {
+    title: 'Collaborative partner',
+    description: 'Clear written updates and proactive feedback loops make async collaboration with designers and PMs straightforward.',
+  },
+];
 
 const About = () => {
   return (
-    <section className="py-20 px-4 bg-white dark:bg-gray-900" id="about">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
-            About Me
+    <section id="about" className="scroll-mt-24">
+      <div className="space-y-6">
+        <div className="space-y-3">
+          <span className="text-xs uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">About</span>
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-slate-100">
+            Full-stack builder with product instincts.
           </h2>
+          <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-3xl">
+            I architect, build, and iterate on web platforms end-to-end—balancing clean interfaces with durable backends so every release feels confident and considered.
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                I am a passionate Frontend Developer with 1.8 years of
-                experience building user-friendly and visually appealing web
-                applications. I specialize in creating responsive and dynamic
-                interfaces using modern technologies like React, JavaScript,
-                HTML, and CSS.
-              </p>
-             
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                I thrive on turning design concepts into seamless digital
-                experiences and constantly seek to learn and adapt to emerging
-                trends in web development. My goal is to craft engaging,
-                performant, and impactful applications that enhance user
-                satisfaction and drive results.
-              </p>
-            </div>
+        <div className="grid md:grid-cols-[1.4fr,1fr] gap-10 md:gap-14 items-start">
+          <div className="grid sm:grid-cols-2 gap-4">
+            {highlights.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-slate-200/60 dark:border-slate-800/70 bg-white/60 dark:bg-slate-900/40 p-6"
+              >
+                <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
 
-            <div className="relative">
+          <div className="relative h-full">
+            <div className="rounded-3xl overflow-hidden border border-slate-200/60 dark:border-slate-800/70 bg-white/60 dark:bg-slate-900/40">
               <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=80"
                 alt="Developer working"
-                className="rounded-lg shadow-xl"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import Coderafttalk from '../assets/coderafttalk.png'
 import Voiceless from '../assets/voiceless.png'
@@ -9,35 +8,35 @@ import Blogs from '../assets/blogs.png'
 const projects = [
   {
     title: 'CodeRaftTalk',
-    description: 'A full-stack Chat application built with React, Node.js, and MongoDB',
+    description: 'Real-time chat platform with presence, secure rooms, and message history powered by React, Node.js, and MongoDB.',
     image: Coderafttalk,
     github: 'https://github.com/codingraft/CodeRaftTalk',
     live: 'https://coderafttalk.onrender.com/',
   },
   { 
     title: 'Voiceless',
-    description: 'A anonymous feedback app built with Next.js and MongoDB',
+    description: 'Privacy-first feedback hub built with Next.js and MongoDB, enabling anonymous submissions and streamlined moderation.',
     image: Voiceless,
     github: 'https://github.com/codingraft/voiceless',
     live: 'https://voiceless-zeta.vercel.app/',
   },
   { 
     title: 'Cira Store',
-    description: 'A full-stack e-commerce app built with React and firebase',
+    description: 'Modular e-commerce experience with dynamic catalogues, checkout flow, and Firebase-backed inventory management.',
     image: Cira,
     github: 'https://github.com/codingraft/CIRA-store',
     live: 'https://cira-store-1qmot3z00-codingrafts-projects.vercel.app/',
   },
   { 
     title: 'Codingraft Blogs',
-    description: 'A full-stack blog app built with React and Appwrite',
+    description: 'Content publishing platform with rich text editing, role-based access, and Appwrite-powered APIs.',
     image: Blogs,
     github: 'https://github.com/codingraft/codingraft-blogs',
     live: 'https://codingraft-blogs.vercel.app/',
   },
   {
     title: 'Giphy Clone',
-    description: 'A simple Giphy clone built with React and the Giphy API',
+    description: 'Snappy GIF explorer that surfaces trending searches, built with React and the public Giphy API.',
     image: Giphy,
     github: 'https://github.com/codingraft/giphy-clone',
     live: 'https://giphy-clone-pi.vercel.app/',
@@ -46,65 +45,64 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="py-20 px-4 bg-white dark:bg-gray-900" id='projects'>
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
-            Projects
+    <section id='projects' className="scroll-mt-24">
+      <div className="space-y-6">
+        <div className="space-y-3">
+          <span className="text-xs uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">Projects</span>
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-slate-100">
+            Real-world products built with modern stacks.
           </h2>
+          <p className="max-w-3xl text-base md:text-lg text-slate-600 dark:text-slate-300">
+            A snapshot of platforms I’ve led—from privacy-first feedback tools to full-featured commerce experiences.
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
-              >
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.map((project) => (
+            <article
+              key={project.title}
+              className="group overflow-hidden rounded-3xl border border-slate-200/60 dark:border-slate-800/70 bg-white/60 dark:bg-slate-900/40"
+            >
+              <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover"
+                  className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+              </div>
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex space-x-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                    >
-                      <Github className="w-5 h-5 mr-1" />
-                      Code
-                    </a>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                    >
-                      <ExternalLink className="w-5 h-5 mr-1" />
-                      Live Demo
-                    </a>
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+                <div className="flex items-center gap-4 text-sm text-slate-600 dark:text-slate-300">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-slate-900 dark:hover:text-white"
+                  >
+                    <Github className="w-4 h-4" />
+                    Code
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-slate-900 dark:hover:text-white"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Live
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

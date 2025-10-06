@@ -1,104 +1,56 @@
 
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart, Code } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-gray-900 py-12 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Vaibhav</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Full Stack Developer passionate about creating beautiful and functional web applications.
+    <footer className="border-t border-slate-200/60 dark:border-slate-800/70">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold tracking-widest uppercase text-slate-500 dark:text-slate-400">
+              Codingraft
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/codingraft"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/vaibhavg9/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:gvaibhav864@gmail.com"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Get in Touch</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-2">
-              Feel free to reach out for collaborations or just a friendly hello
+            <p className="max-w-md text-sm text-slate-600 dark:text-slate-300">
+              Full Stack Engineer focused on calm, intentional product experiences.
             </p>
+          </div>
+          <div className="flex items-center gap-4 text-slate-500 dark:text-slate-400">
+            <a
+              href="https://github.com/codingraft"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-900 dark:hover:text-white"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com/in/vaibhavg9/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-900 dark:hover:text-white"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
             <a
               href="mailto:gvaibhav864@gmail.com"
-              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+              className="hover:text-slate-900 dark:hover:text-white"
             >
-              gvaibhav864@gmail.com
+              <Mail className="w-5 h-5" />
             </a>
           </div>
         </div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="pt-8 border-t border-gray-200 dark:border-gray-700"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} Vaibhav. All rights reserved.
-            </p>
-            <div className="flex items-center space-x-1 text-sm text-gray-600 dark:text-gray-400">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500" />
-              <span>and</span>
-              <Code className="w-4 h-4 text-blue-500" />
-            </div>
-          </div>
-        </motion.div>
+
+        <div className="flex flex-col gap-4 text-sm text-slate-500 dark:text-slate-400 md:flex-row md:items-center md:justify-between">
+          <p>© {currentYear} Codingraft. All rights reserved.</p>
+          <nav className="flex flex-wrap gap-4">
+            <a href="#about" className="hover:text-slate-900 dark:hover:text-white">About</a>
+            <a href="#skills" className="hover:text-slate-900 dark:hover:text-white">Skills</a>
+            <a href="#projects" className="hover:text-slate-900 dark:hover:text-white">Projects</a>
+            <a href="#contact" className="hover:text-slate-900 dark:hover:text-white">Contact</a>
+          </nav>
+        </div>
       </div>
     </footer>
   );
